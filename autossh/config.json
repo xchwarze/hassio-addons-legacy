@@ -5,6 +5,7 @@
   "description": "Automatically connect to a ssh server for forwarding ports",
   "url": "https://github.com/odinuge/hassio-addons",
   "startup": "application",
+  "host_network": true,
   "boot": "auto",
   "map": ["config:rw"],
   "options": {
