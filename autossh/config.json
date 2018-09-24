@@ -1,12 +1,12 @@
 {
-  "name": "Autossh",
-  "version": "0.2.3",
-  "slug": "autossh",
+  "name": "HASS Tunnel",
+  "version": "0.0.2",
+  "slug": "hass_tunnel",
   "description": "Automatically connect to a ssh server for forwarding ports",
   "url": "https://github.com/odinuge/hassio-addons",
   "startup": "application",
-  "host_network": true,
   "boot": "auto",
+  "host_network": true,
   "map": ["config:rw"],
   "options": {
     "hostname": "",
@@ -26,5 +26,5 @@
     "other_ssh_options": "str",
     "monitor_port": "int"
   },
-  "image": "odinuge/hassio-addon-autossh-{arch}"
+  "image": "pjcarly/hassio-addon-autossh-{arch}"
 }
