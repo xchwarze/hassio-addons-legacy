@@ -1,7 +1,8 @@
 ---
 channel: stable
 addons:
-  adb:
+  hass_tunnel:
     repository: hassio-addons/hass_tunnel
     target: hass_tunnel
+    image: hass_tunnel
   
