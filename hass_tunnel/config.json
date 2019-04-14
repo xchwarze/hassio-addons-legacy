@@ -1,19 +1,14 @@
 {
-  "name": "HASS Tunnel",
-  "version": "0.0.2",
-  "slug": "hass_tunnel",
+  "name": "Autossh",
+  "version": "0.3.0",
+  "slug": "autossh",
   "description": "Automatically connect to a ssh server for forwarding ports",
   "url": "https://github.com/pjcarly/hassio-addons",
+  "arch": ["armv7", "armhf", "amd64", "aarch64", "i386"],
   "startup": "application",
   "boot": "auto",
   "host_network": true,
   "map": ["config:rw"],
-  "arch": [
-    "aarch64",
-    "amd64",
-    "armhf",
-    "i386"
-  ],
   "options": {
     "hostname": "",
     "ssh_port": "22",
