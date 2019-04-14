@@ -32,5 +32,5 @@
     "other_ssh_options": "str",
     "monitor_port": "int"
   },
-  "image": "pjcarly/hassio-addon-autossh-{arch}"
+  "image": "odinuge/hassio-addon-autossh-{arch}"
 }
