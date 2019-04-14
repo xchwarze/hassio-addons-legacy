@@ -3,11 +3,17 @@
   "version": "0.0.2",
   "slug": "hass_tunnel",
   "description": "Automatically connect to a ssh server for forwarding ports",
-  "url": "https://github.com/odinuge/hassio-addons",
+  "url": "https://github.com/pjcarly/hassio-addons",
   "startup": "application",
   "boot": "auto",
   "host_network": true,
   "map": ["config:rw"],
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armv7",
+    "i386"
+  ],
   "options": {
     "hostname": "",
     "ssh_port": "22",
