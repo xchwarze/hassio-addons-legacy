@@ -1,9 +1,9 @@
 {
   "name": "Autossh",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "slug": "autossh",
   "description": "Automatically connect to a ssh server for forwarding ports",
-  "url": "https://github.com/pjcarly/hassio-addons",
+  "url": "https://github.com/xchwarze/hassio-addons",
   "arch": ["armv7", "armhf", "amd64", "aarch64", "i386"],
   "startup": "application",
   "boot": "auto",
@@ -16,7 +16,9 @@
     "remote_forwarding": ["127.0.0.1:8123:172.17.0.1:8123"],
     "local_forwarding": [""],
     "other_ssh_options": "-v",
-    "monitor_port": "0"
+    "monitor_port": "0",
+    "server_alive_interval": "20",
+    "server_alive_count_max": "3"
   },
   "schema": {
     "hostname": "str",
@@ -25,7 +27,9 @@
     "remote_forwarding": ["str"],
     "local_forwarding": ["str"],
     "other_ssh_options": "str",
-    "monitor_port": "int"
+    "monitor_port": "int",
+    "server_alive_interval": "int",
+    "server_alive_count_max": "int"
   },
-  "image": "odinuge/hassio-addon-autossh-{arch}"
+  "image": "xchwarze/hassio-addon-autossh-{arch}"
 }
