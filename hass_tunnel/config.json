@@ -30,6 +30,5 @@
     "monitor_port": "int",
     "server_alive_interval": "int",
     "server_alive_count_max": "int"
-  },
-  "image": "xchwarze/hassio-addon-autossh-{arch}"
+  }
 }
