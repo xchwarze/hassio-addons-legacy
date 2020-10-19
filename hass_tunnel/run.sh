@@ -13,7 +13,9 @@ OTHER_SSH_OPTIONS=$(jq --raw-output ".other_ssh_options" $CONFIG_PATH)
 MONITOR_PORT=$(jq --raw-output ".monitor_port" $CONFIG_PATH)
 SERVER_ALIVE_INTERVAL=$(jq --raw-output ".server_alive_interval" $CONFIG_PATH)
 SERVER_ALIVE_COUNT_MAX=$(jq --raw-output ".server_alive_count_max" $CONFIG_PATH)
+GATETIME=$(jq --raw-output ".gatetime" $CONFIG_PATH)
 
+export AUTOSSH_GATETIME=$GATETIME
 
 echo "[DEBUG] Start"
 
