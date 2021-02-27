@@ -5,7 +5,3 @@ addons:
     repository: hassio-addons/hass_tunnel
     target: hass_tunnel
     image: hass_tunnel
-  zwave_js:
-    repository: hassio-addons/zwave_js
-    target: zwave_js
-    image: zwave_js
