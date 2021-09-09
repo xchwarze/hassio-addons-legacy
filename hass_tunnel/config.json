@@ -1,7 +1,7 @@
 {
-  "name": "Autossh",
+  "name": "Hass tunnel",
   "version": "0.4.4",
-  "slug": "autossh",
+  "slug": "hass_tunnel",
   "description": "Automatically connect to a ssh server for forwarding ports",
   "url": "https://github.com/xchwarze/hassio-addons",
   "arch": ["armv7", "armhf", "amd64", "aarch64", "i386"],
