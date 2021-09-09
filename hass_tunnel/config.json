@@ -3,7 +3,7 @@
   "version": "0.4.4",
   "slug": "hass_tunnel",
   "description": "Automatically connect to a ssh server for forwarding ports",
-  "url": "https://github.com/xchwarze/hassio-addons",
+  "url": "https://github.com/xchwarze/hassio-addons-legacy",
   "arch": ["armv7", "armhf", "amd64", "aarch64", "i386"],
   "startup": "application",
   "boot": "auto",
