@@ -2,7 +2,7 @@
 set -e
 
 CONFIG_PATH=/data/options.json
-KEY_PATH=/data/ssh_keys
+KEY_PATH=/data/.ssh
 
 HOSTNAME=$(jq --raw-output ".hostname" $CONFIG_PATH)
 SSH_PORT=$(jq --raw-output ".ssh_port" $CONFIG_PATH)
@@ -14,24 +14,30 @@ MONITOR_PORT=$(jq --raw-output ".monitor_port" $CONFIG_PATH)
 SERVER_ALIVE_INTERVAL=$(jq --raw-output ".server_alive_interval" $CONFIG_PATH)
 SERVER_ALIVE_COUNT_MAX=$(jq --raw-output ".server_alive_count_max" $CONFIG_PATH)
 GATETIME=$(jq --raw-output ".gatetime" $CONFIG_PATH)
+USE_SHARE_FOLDER=$(jq --raw-output ".use_share_folder" $CONFIG_PATH)
 
 export AUTOSSH_GATETIME=$GATETIME
 
 echo "[DEBUG] Start"
 
+# Use host share folder for keys
+if [ "$USE_SHARE_FOLDER" = true ] ; then
+    KEY_PATH=/share/.ssh
+fi
+
 # Generate key
 if [ ! -d "$KEY_PATH" ]; then
     echo "[INFO] Setup private key"
     mkdir -p "$KEY_PATH"
-    ssh-keygen -b 4096 -t rsa -N "" -f "${KEY_PATH}/autossh_rsa_key"
+    ssh-keygen -b 4096 -t rsa -N "" -f "${KEY_PATH}/addon_autossh_key"
 else
     echo "[INFO] Restore private_keys"
 fi
 
 echo "[INFO] public key is:"
-cat "${KEY_PATH}/autossh_rsa_key.pub"
+cat "${KEY_PATH}/addon_autossh_key.pub"
 
-command_args="-M ${MONITOR_PORT} -N -q -o ServerAliveInterval=${SERVER_ALIVE_INTERVAL} -o ServerAliveCountMax=${SERVER_ALIVE_COUNT_MAX} ${USERNAME}@${HOSTNAME} -p ${SSH_PORT} -i ${KEY_PATH}/autossh_rsa_key"
+command_args="-M ${MONITOR_PORT} -N -q -o ServerAliveInterval=${SERVER_ALIVE_INTERVAL} -o ServerAliveCountMax=${SERVER_ALIVE_COUNT_MAX} ${USERNAME}@${HOSTNAME} -p ${SSH_PORT} -i ${KEY_PATH}/addon_autossh_key"
 
 if [ ! -z "$REMOTE_FORWARDING" ]; then
   while read -r line; do
