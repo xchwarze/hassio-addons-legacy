@@ -34,6 +34,7 @@ else
     echo "[INFO] Restore private_keys"
 fi
 
+echo "[INFO] Using existing keys from: '${KEY_PATH}'"
 echo "[INFO] public key is:"
 cat "${KEY_PATH}/addon_autossh_key.pub"
 
